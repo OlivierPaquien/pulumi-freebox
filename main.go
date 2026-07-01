@@ -13,6 +13,14 @@ import (
 var version = "0.3.1"
 
 func main() {
+	if len(os.Args) > 1 && os.Args[1] == "authorize" {
+		if err := runAuthorize(version); err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		return
+	}
+
 	freeboxLog("[freebox] provider freebox starting version %s\n", version)
 	p, err := infer.NewProviderBuilder().
 		WithDisplayName("Freebox").
