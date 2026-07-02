@@ -84,7 +84,7 @@ func newTestServer(t *testing.T, cfg Config) integration.Server {
 			infer.Function(GetSystemInfo{}),
 		).
 		WithModuleMap(map[tokens.ModuleName]tokens.ModuleName{
-			"main": "index", "pulumi-provider-freebox": "index",
+			"main": "index", "pulumi-freebox": "index",
 		}).
 		Build()
 	require.NoError(t, err)

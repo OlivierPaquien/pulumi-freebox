@@ -34,7 +34,7 @@ func testVpnUser(t *testing.T) {
 
 	login := "pvpn-" + uuid.New().String()[:8]
 	password := "Pw1-" + uuid.New().String()[:8]
-	description := "pulumi-provider-freebox integration test"
+	description := "pulumi-freebox integration test"
 
 	t.Run("create, update and delete", func(t *testing.T) {
 		urn := vpnUserURN(login)

@@ -15,7 +15,7 @@ import (
 )
 
 const (
-	defaultAuthorizeAppID      = "pulumi-provider-freebox"
+	defaultAuthorizeAppID      = "pulumi-freebox"
 	defaultAuthorizeDeviceName = "pulumi"
 )
 

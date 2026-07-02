@@ -8,8 +8,8 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go/freebox"
-	"github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go/freebox/internal"
+	"github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox"
+	"github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
