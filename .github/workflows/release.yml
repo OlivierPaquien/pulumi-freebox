@@ -99,13 +99,13 @@ jobs:
           pulumi package gen-sdk schema.json --language go --version "$VERSION"
 
           # Make sdk/go a standalone Go module so `go get .../sdk/go@...` works.
-          cat > sdk/go/go.mod <<'EOF'
-module github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go
-
-go 1.24
-
-require github.com/pulumi/pulumi/sdk/v3 v3.217.0
-EOF
+          printf '%s\n' \
+            'module github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go' \
+            '' \
+            'go 1.24' \
+            '' \
+            'require github.com/pulumi/pulumi/sdk/v3 v3.217.0' \
+            > sdk/go/go.mod
           (cd sdk/go && go mod tidy)
 
       - uses: actions/upload-artifact@v4
