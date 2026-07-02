@@ -1,4 +1,4 @@
-module github.com/OlivierPaquien/pulumi-provider-freebox
+module github.com/OlivierPaquien/pulumi-freebox
 
 go 1.24.7
 

@@ -100,7 +100,7 @@ jobs:
 
           # Make sdk/go a standalone Go module so `go get .../sdk/go@...` works.
           printf '%s\n' \
-            'module github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go' \
+            'module github.com/OlivierPaquien/pulumi-freebox/sdk/go' \
             '' \
             'go 1.24' \
             '' \
@@ -188,7 +188,7 @@ jobs:
       - name: Publish Go SDK tag
         uses: pulumi/publish-go-sdk-action@v1
         with:
-          repository: OlivierPaquien/pulumi-provider-freebox
+          repository: OlivierPaquien/pulumi-freebox
           base-ref: ${{ github.ref_name }}
           source: sdk/go
           path: sdk/go

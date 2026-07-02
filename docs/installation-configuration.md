@@ -19,17 +19,17 @@ Until SDKs are published to npm, PyPI, NuGet, and as a tagged Go module, command
 
 ## Plugin installation
 
-Install the plugin from a [GitHub release](https://github.com/OlivierPaquien/pulumi-provider-freebox/releases) or from a local build:
+Install the plugin from a [GitHub release](https://github.com/OlivierPaquien/pulumi-freebox/releases) or from a local build:
 
 ```bash
 # From GitHub Releases (once published)
-VERSION="$(gh release view --repo OlivierPaquien/pulumi-provider-freebox --json tagName -q .tagName)"
+VERSION="$(gh release view --repo OlivierPaquien/pulumi-freebox --json tagName -q .tagName)"
 VERSION="${VERSION#v}"
 pulumi plugin install resource freebox "$VERSION" \
-  --server github://api.github.com/OlivierPaquien/pulumi-provider-freebox
+  --server github://api.github.com/OlivierPaquien/pulumi-freebox
 
 # From a local build
-VERSION="$(gh release view --repo OlivierPaquien/pulumi-provider-freebox --json tagName -q .tagName)"
+VERSION="$(gh release view --repo OlivierPaquien/pulumi-freebox --json tagName -q .tagName)"
 VERSION="${VERSION#v}"
 go build -o bin/pulumi-resource-freebox .
 pulumi plugin install resource freebox "$VERSION" --file ./bin/pulumi-resource-freebox
@@ -46,9 +46,9 @@ No SDK required. Install the plugin, then use resource tokens directly (for exam
 Generate a local SDK from the provider schema inside your Pulumi project:
 
 ```bash
-VERSION="$(gh release view --repo OlivierPaquien/pulumi-provider-freebox --json tagName -q .tagName)"
+VERSION="$(gh release view --repo OlivierPaquien/pulumi-freebox --json tagName -q .tagName)"
 VERSION="${VERSION#v}"
-pulumi package add github.com/OlivierPaquien/pulumi-provider-freebox@v$VERSION
+pulumi package add github.com/OlivierPaquien/pulumi-freebox@v$VERSION
 ```
 
 This downloads the schema, installs the plugin if needed, and adds the SDK sources to your project. You can also point at a locally built plugin:
@@ -73,7 +73,7 @@ Once the provider is fully published, install commands will look like this:
 | Node.js (TypeScript/JavaScript) | `npm install pulumi-freebox` |
 | Python | `pip install pulumi-freebox` |
 | .NET | `dotnet add package Pulumi.Freebox` |
-| Go | `go get github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go/freebox@VERSION` |
+| Go | `go get github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox@VERSION` |
 
 These commands only work after the corresponding packages are published as part of the release process. Until then, use the plugin binary plus local SDK generation above.
 
@@ -133,7 +133,7 @@ Pulumi does not always surface plugin logs on the console. The provider also wri
 After rebuilding the plugin locally, reinstall it so Pulumi uses the new binary:
 
 ```bash
-VERSION="$(gh release view --repo OlivierPaquien/pulumi-provider-freebox --json tagName -q .tagName)"
+VERSION="$(gh release view --repo OlivierPaquien/pulumi-freebox --json tagName -q .tagName)"
 VERSION="${VERSION#v}"
 pulumi plugin install resource freebox $VERSION --file ./bin/pulumi-resource-freebox --reinstall
 FREEBOX_DEBUG_LOG=$HOME/freebox-provider.log pulumi up

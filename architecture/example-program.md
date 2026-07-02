@@ -67,7 +67,7 @@ func NewPortForwarding(ctx *pulumi.Context, name string, args *PortForwardingArg
 }
 ```
 
-The token `freebox:fw:PortForwarding` must match what the provider registers in `pulumi-provider-freebox/main.go`:
+The token `freebox:fw:PortForwarding` must match what the provider registers in `pulumi-freebox/main.go`:
 
 ```go
 infer.Resource(PortForwarding{}),

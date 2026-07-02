@@ -1,6 +1,6 @@
 # Architecture documentation
 
-This folder describes how **pulumi-provider-freebox** fits into a Pulumi deployment and how the provider is structured internally.
+This folder describes how **pulumi-freebox** fits into a Pulumi deployment and how the provider is structured internally.
 
 ## Documents
 
@@ -15,7 +15,7 @@ This folder describes how **pulumi-provider-freebox** fits into a Pulumi deploym
 | Binary | Role | Started by |
 |--------|------|------------|
 | **Your Pulumi program** (e.g. `opaq/bootstrap/pulumi-go/main.go`) | Declares *what* to deploy (VM, DHCP, port forwarding) | Pulumi language host on `pulumi up` |
-| **pulumi-provider-freebox** (`pulumi-provider-freebox/main.go`) | Implements *how* each `freebox:*` resource is created/updated/deleted | Pulumi engine (`pulumi-resource-freebox` plugin) |
+| **pulumi-freebox** (`pulumi-freebox/main.go`) | Implements *how* each `freebox:*` resource is created/updated/deleted | Pulumi engine (`pulumi-resource-freebox` plugin) |
 
 Install the provider plugin separately:
 

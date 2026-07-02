@@ -106,7 +106,7 @@ var pf = new PortForwarding("ssh", new PortForwardingArgs
 package main
 
 import (
-	"github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go/freebox"
+	"github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -154,5 +154,5 @@ resources:
 
 ## Source
 
-- Provider repository: [github.com/OlivierPaquien/pulumi-provider-freebox](https://github.com/OlivierPaquien/pulumi-provider-freebox)
+- Provider repository: [github.com/OlivierPaquien/pulumi-freebox](https://github.com/OlivierPaquien/pulumi-freebox)
 - Freebox API client: [github.com/NikolaLohinski/free-go](https://github.com/NikolaLohinski/free-go)

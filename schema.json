@@ -8,7 +8,7 @@
     },
     "go": {
       "generateResourceContainerTypes": true,
-      "importBasePath": "github.com/OlivierPaquien/pulumi-provider-freebox/sdk/go/freebox",
+      "importBasePath": "github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox",
       "respectSchemaVersion": true
     },
     "nodejs": {
@@ -1436,7 +1436,7 @@
       }
     }
   },
-  "pluginDownloadURL": "github://api.github.com/OlivierPaquien/pulumi-provider-freebox",
+  "pluginDownloadURL": "github://api.github.com/OlivierPaquien/pulumi-freebox",
   "publisher": "OlivierPaquien",
   "version": "0.3.1"
 }

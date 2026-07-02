@@ -1,4 +1,4 @@
-# pulumi-provider-freebox
+# pulumi-freebox
 
 Native Pulumi provider for Freebox, ported from [terraform-provider-freebox](https://github.com/NikolaLohinski/terraform-provider-freebox) **without** using the Terraform Bridge. Implemented from scratch with the [Pulumi Go Provider SDK](https://www.pulumi.com/docs/iac/guides/building-extending/providers/sdks/pulumi-go-provider-sdk/).
 
@@ -75,7 +75,7 @@ tail -f ~/.pulumi/pulumi-freebox-provider.log
 **To see logs during `pulumi destroy`**: Pulumi runs the provider from its cache (or from the configured path). After each `go build`, reinstall the plugin so the correct binary is used, and force a known log file with `FREEBOX_DEBUG_LOG` (Pulumi passes env vars to the plugin):
 
 ```bash
-VERSION="$(gh release view --repo OlivierPaquien/pulumi-provider-freebox --json tagName -q .tagName)"
+VERSION="$(gh release view --repo OlivierPaquien/pulumi-freebox --json tagName -q .tagName)"
 VERSION="${VERSION#v}"
 pulumi plugin install resource freebox "$VERSION" --file ./bin/pulumi-resource-freebox
 FREEBOX_DEBUG_LOG=$HOME/freebox-provider.log pulumi destroy

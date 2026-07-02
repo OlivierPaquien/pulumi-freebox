@@ -39,7 +39,7 @@ func testPortForwarding(t *testing.T) {
 	portRangeEnd := portRangeStart + 10
 	targetPort := portRangeStart
 	resourceName := "test-pf-" + strconv.FormatInt(portRangeStart, 10)
-	comment := "pulumi-provider-freebox-test"
+	comment := "pulumi-freebox-test"
 
 	t.Run("create and delete", func(t *testing.T) {
 		urn := portForwardingURN(resourceName)

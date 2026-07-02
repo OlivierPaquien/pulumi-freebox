@@ -22,7 +22,7 @@ flowchart TB
         PLUGIN["Provider plugin<br/>pulumi-resource-freebox"]
     end
 
-    subgraph provider["pulumi-provider-freebox"]
+    subgraph provider["pulumi-freebox"]
         INFER["pulumi-go-provider / infer"]
         RES["resource_*.go"]
         CLIENT["client.go → free-go"]
@@ -108,7 +108,7 @@ flowchart LR
     end
 
     subgraph plugin["Provider plugin (installed separately)"]
-        P3["pulumi-provider-freebox/main.go"]
+        P3["pulumi-freebox/main.go"]
         P4["resource_port_forwarding.go<br/>Create / Read / Update / Delete"]
     end
 

@@ -1,6 +1,6 @@
 # Provider internals
 
-Internal architecture of **pulumi-provider-freebox** (the `pulumi-resource-freebox` plugin).
+Internal architecture of **pulumi-freebox** (the `pulumi-resource-freebox` plugin).
 
 ## Layered view
 

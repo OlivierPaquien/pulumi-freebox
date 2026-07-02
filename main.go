@@ -50,7 +50,7 @@ func main() {
 			infer.Function(GetSystemInfo{}),
 		).
 		WithModuleMap(map[tokens.ModuleName]tokens.ModuleName{
-			"main": "index", "pulumi-provider-freebox": "index",
+			"main": "index", "pulumi-freebox": "index",
 		}).
 		Build()
 	if err != nil {
