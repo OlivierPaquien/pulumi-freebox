@@ -1,0 +1,58 @@
+{
+    "compilerOptions": {
+        // Output
+        "outDir": "bin",
+        "declaration": true,
+        "declarationMap": true,
+        "sourceMap": true,
+        "stripInternal": true,
+        // Environment
+        "target": "ES2022",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "moduleDetection": "force",
+        "types": ["node"],
+        // Type Checking
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "skipLibCheck": true
+    },
+    "files": [
+        "api/index.ts",
+        "api/version.ts",
+        "config/index.ts",
+        "config/vars.ts",
+        "dhcp/getLease.ts",
+        "dhcp/getLeases.ts",
+        "dhcp/index.ts",
+        "dhcp/staticLease.ts",
+        "downloads/file.ts",
+        "downloads/index.ts",
+        "fw/index.ts",
+        "fw/portForwarding.ts",
+        "index.ts",
+        "lan/config.ts",
+        "lan/getConfig.ts",
+        "lan/getInterfaceHost.ts",
+        "lan/getInterfaceHosts.ts",
+        "lan/getInterfaces.ts",
+        "lan/index.ts",
+        "provider.ts",
+        "system/getInfo.ts",
+        "system/index.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
+        "utilities.ts",
+        "virtual/disk.ts",
+        "virtual/getDistributions.ts",
+        "virtual/getVirtualDisk.ts",
+        "virtual/index.ts",
+        "virtual/machine.ts",
+        "virtual/machinePower.ts",
+        "vpn/index.ts",
+        "vpn/server.ts",
+        "vpn/user.ts"
+    ]
+}
