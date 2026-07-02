@@ -97,6 +97,8 @@ jobs:
             > schema.json
           pulumi package gen-sdk schema.json --language python --version "$VERSION"
           pulumi package gen-sdk schema.json --language go --version "$VERSION"
+          pulumi package gen-sdk schema.json --language nodejs --version "$VERSION"
+          pulumi package gen-sdk schema.json --language dotnet --version "$VERSION"
 
           # Make sdk/go a standalone Go module so `go get .../sdk/go@...` works.
           printf '%s\n' \
@@ -166,6 +168,65 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: sdk/python/dist/
+
+  publish-npm:
+    needs: generate-sdks
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: sdk-nodejs
+          path: sdk/nodejs/
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: https://registry.npmjs.org
+
+      - name: Publish to npm
+        run: |
+          cd sdk/nodejs
+          npm pkg delete repository 2>/dev/null || true
+          npm pkg set repository.type=git repository.url=https://github.com/OlivierPaquien/pulumi-freebox
+          npm install
+          npm publish --provenance --access public
+
+  publish-nuget:
+    needs: generate-sdks
+    runs-on: ubuntu-latest
+    environment: nuget
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: sdk-dotnet
+          path: sdk/dotnet/
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Build NuGet package
+        run: |
+          cd sdk/dotnet
+          dotnet build --configuration Release
+          dotnet pack --configuration Release --no-build --output nupkgs
+
+      - name: NuGet login (OIDC)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: ${{ secrets.NUGET_USER }}
+
+      - name: Publish to NuGet
+        run: |
+          dotnet nuget push sdk/dotnet/nupkgs/*.nupkg \
+            --api-key ${{ steps.login.outputs.NUGET_API_KEY }} \
+            --source https://api.nuget.org/v3/index.json
 
   publish-go:
     needs: generate-sdks
