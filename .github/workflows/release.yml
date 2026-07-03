@@ -144,7 +144,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          ref: main
           fetch-depth: 0
 
       - uses: actions/download-artifact@v4
@@ -162,14 +162,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --ff-only origin main
           git add schema.json main.go
           if git diff --staged --quiet; then
             echo "schema.json and main.go already up to date"
-            exit 0
+          else
+            git commit -m "chore(release): sync schema.json and version for ${GITHUB_REF_NAME}"
+            git push origin HEAD:refs/heads/main
           fi
-          git commit -m "chore(release): sync schema.json and version for ${GITHUB_REF_NAME}"
           git tag -fa "${GITHUB_REF_NAME}" -m "Release ${GITHUB_REF_NAME}"
-          git push origin HEAD:refs/heads/main
           git push origin "${GITHUB_REF_NAME}" --force
 
   github-release:

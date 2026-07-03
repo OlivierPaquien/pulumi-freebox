@@ -3,7 +3,7 @@
 .version = $version
 | .pluginDownloadURL = "github://api.github.com/OlivierPaquien/pulumi-freebox"
 | .publisher = "OlivierPaquien"
-| .logoUrl = "https://raw.githubusercontent.com/OlivierPaquien/pulumi-freebox/main/docs/logo.svg"
+| .logoUrl = "https://raw.githubusercontent.com/OlivierPaquien/pulumi-freebox/main/docs/logo.png"
 | .language.nodejs.packageName = "pulumi-freebox"
 | .language.python.packageName = "pulumi_freebox"
 | .language.go.importBasePath = "github.com/OlivierPaquien/pulumi-freebox/sdk/go/freebox"
